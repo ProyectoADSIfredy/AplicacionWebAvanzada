@@ -81,10 +81,10 @@
 // 	Usuario varchar(80), 
 // 	Operacion varchar(80) )
 // INSERT TABLA USUARIO
-$conexion = mysql_connect("localhost","fredy","fredy");
-mysql_select_db("blogsonline",$conexion);
-mysql_query("INSERT INTO log (Utc, Anio, Mes, Dia, Hora, Minuto, Segundo, Ip, Navegador, Usuario, Operacion ) VALUES ('0000000000','2015','06','06','10','17','10','127.0.0.1','Opera','Fredy','Crear')");
-mysql_close($conexion);
+// $conexion = mysql_connect("localhost","fredy","fredy");
+// mysql_select_db("blogsonline",$conexion);
+// mysql_query("INSERT INTO log (Utc, Anio, Mes, Dia, Hora, Minuto, Segundo, Ip, Navegador, Usuario, Operacion ) VALUES ('0000000000','2015','06','06','10','17','10','127.0.0.1','Opera','Fredy','Crear')");
+// mysql_close($conexion);
 
 
 ?>
