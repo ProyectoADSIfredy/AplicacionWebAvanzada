@@ -1,45 +1,29 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE html>
 <html>
 <head>
 <title>Ribbon Login Form Flat Responsive widget Design :: w3layouts</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <meta name="keywords" content="Ribbon Login Form Responsive Templates, Iphone Compatible Templates, Smartphone Compatible Templates, Ipad Compatible Templates, Flat Responsive Templates"/>
 <link href="css/style.css" rel='stylesheet' type='text/css' />
-<!--webfonts-->
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
-<!--/webfonts-->
 </head>
 <body>
-<!--start-main-->
-<!-- ! Bienvenido Por favor ingresa ... -->
 <h1>!Bienvenido!<span>Por favor ingresa ...</span></h1>
 <div class="login-box">
-		<form>
-			<input type="text" class="text" value="Username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}" >
-			<input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
-		</form>
+		<form action="login.php" method="post">
+		<input type="text" class="text" name="usuario" placeholder="Usuario" required autofocus />
+		<input type="password" class="text" name="contrasena" placeholder="Contraseña" required>
 		<div class="remember">
-			<a href="#"><p>Registrese</p></a>
-			<h4>AQUI?<a href="#">Click here.</a></h4>
+			<h4><a href="forms.html">Click para registrarse</a></h4>
 		</div>
 		<div class="clear"> </div>
 		<div class="btn">
-			<input type="submit" value="LOG IN" >
+			<input type="submit" value="LOGIN" >
 		</div>
 		<div class="clear"> </div>
+		</form>
 </div>
-<!--//End-login-form-->
-<!--start-copyright-->
-<div class="copy-right">
-	<p>Template by <a href="http://w3layouts.com">w3layouts</a></p> 
-</div>
-<!--//end-copyright-->		
 </body>
 </html>
