@@ -31,9 +31,20 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <form role="form" action="crearusuario.php" method="post">
+
+                            <div class="form-group">
+                                Usuario
+                                <input class="form-control" type="text" name="usuario"autofocus required>
+                            </div>
+
+                            <div class="form-group">
+                                Contraseña
+                                <input class="form-control" type="password" name="contrasena" required>
+                            </div>
+
                             <div class="form-group">
                             Nombre
-                                <input class="form-control" type="text" name="nombre" autofocus  required maxlength="50">
+                                <input class="form-control" type="text" name="nombre" required maxlength="50">
                             </div>
 
                             <div class="form-group">
@@ -55,6 +66,10 @@
                                 Descripcion
                                 <textarea class="form-control" rows="4" name="descripcion" maxlength="200"></textarea>
                             </div>
+                            <!-- <div class="form-group">
+                                Titulo
+                                <input class="form-control" type="text" name="descripcion" required maxlength="50">
+                            </div> -->
 
                             <!-- //cargar imagenes del ordenador -->
                             <!-- <div class="form-group">
@@ -76,20 +91,8 @@
                             <div class="form-group input-group">
                                 
                                 <span class="input-group-addon">@</span>
-                                <input type="text" class="form-control" name="correo" placeholder="Username">
+                                <input type="text" class="form-control" name="email" placeholder="Username">
                             </div>
-
-                            <div class="form-group">
-                                Usuario
-                                <input class="form-control" type="text" name="webpersonal" required>
-                            </div>
-
-                            <div class="form-group">
-                                Contraseña
-                                <input class="form-control" type="password" name="webpersonal" required>
-                            </div>
-
-
 
                             <input type="submit" class="" value="REGISTRAR">
                             <input type="reset" class="" value="RESET">

@@ -14,6 +14,7 @@ $descripcion = $_POST['descripcion'];
 $foto = $_POST['foto'];
 $webpersonal = $_POST['webpersonal'];
 $email = $_POST['email'];
+$permiso =3;
 
 //comprobar si el usuario existe conectado a la base de datos
 $conexion = mysql_connect("localhost","fredy","fredy");
@@ -27,12 +28,12 @@ while ($fila = mysql_fetch_array($resultado)) {
 		$contador++;
 	}
 }	
-mysql_close($conexion);
+ mysql_close($conexion);
 
 if ($contador == 0) {
 	
 $conexion = mysql_connect("localhost","fredy","fredy");
-mysql_select_db("pagfavoritos",$conexion);
+mysql_select_db("blogsonline",$conexion);
 
 // privilegios de usuario:
 // 1. administrador
@@ -40,14 +41,14 @@ mysql_select_db("pagfavoritos",$conexion);
 // 3. usuario registrado
 // 4. usuario invitado
 
-mysql_query("INSERT INTO usuario (Usuario, Contrasena, Nombre, Apellido, Edad, Permisos) VALUES ('".$usuario."','".$contrasena."','".$nombre."','".$apellido."','".$edad."',3)");
+mysql_query("INSERT INTO usuario (Usuario, Contrasena, Nombre, ApellidoU, ApellidoD, Titulo, Descripcion, Foto, WebPersonal, Email, Permiso) VALUES ('".$usuario."','".$contrasena."','".$nombre."','".$apellidou."','".$apellidod."','".$titulo."','".$descripcion."','".$foto."','".$webpersonal."','".$email."','".$permiso."');");
 
 mysql_close($conexion);
 
 echo "
 <html>
 <head>
-<meta http-equiv='refresh' content='0; url=principal.php'/>
+<meta http-equiv='refresh' content='0; url=index.html'/>
 </head>
 </html>
 ";
