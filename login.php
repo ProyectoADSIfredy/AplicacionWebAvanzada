@@ -31,15 +31,15 @@ while ($fila = mysql_fetch_array($resultado)) {
 			</html>
 		";
 	}else{
-		echo "no encontrado en la base de datos";
+		// echo "no encontrado en la base de datos";
 
-		echo "
-			<html>
-			<head>
-			<meta http-equiv='refresh' content='0; url=index.html'/>
-			</head>
-			</html>
-		";
+		// echo "
+		// 	<html>
+		// 	<head>
+		// 	<meta http-equiv='refresh' content='0; url=index.html'/>
+		// 	</head>
+		// 	</html>
+		// ";
 
 	}
 }

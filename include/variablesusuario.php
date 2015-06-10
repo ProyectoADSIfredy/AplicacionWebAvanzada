@@ -1,6 +1,6 @@
 <?php 
 
-$_SESSION['usuariotemporal'] = "fredy";
+$_SESSION['usuariotemporal'] = $_SESSION['usuario'];
 
 $conexion = mysql_connect("localhost","fredy","fredy");
 mysql_select_db("blogsonline",$conexion);
