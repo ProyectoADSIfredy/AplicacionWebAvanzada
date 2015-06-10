@@ -26,7 +26,7 @@ $con = mysql_query("INSERT INTO post (Usuario, Utc, Anio, Mes, Dia, Hora, Minuto
 echo "
 <html>
 <head>
-<meta http-equiv='refresh' content='0; url=formulariologs.php'/>
+<meta http-equiv='refresh' content='0; url=../formulariologs.html'/>
 </head>
 </html>
 ";
