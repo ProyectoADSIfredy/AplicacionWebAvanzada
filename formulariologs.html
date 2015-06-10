@@ -3,22 +3,16 @@
 session_start();
 
 include "include/variablesusuario.php";
-
 ?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Blog</title>
-    <!-- LLAMADO CSS -->
-    <link rel="css/stylefoto.css" type="text/css" href="">
-
-
+    <title>Registro de post</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/sb-admin.css" rel="stylesheet">
     <link href="css/plugins/morris.css" rel="stylesheet">
@@ -47,8 +41,6 @@ include "include/variablesusuario.php";
                                         <img class="media-object" src="http://placehold.it/50x50" alt="">
                                     </span>
                                     <div class="media-body">
-                                        <h5 class="media-heading"><strong><?php echo $_SESSION['usuario']; ?></strong>
-                                        </h5>
                                         <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                         <p>Lorem ipsum dolor sit amet, consectetur...</p>
                                     </div>
@@ -62,8 +54,8 @@ include "include/variablesusuario.php";
                                         <img class="media-object" src="http://placehold.it/50x50" alt="">
                                     </span>
                                     <div class="media-body">
-                                        <h5 class="media-heading"><strong>Fredy Ramirez</strong>
-                                        </h5>
+                                        <!-- <h5 class="media-heading"><strong>John Smith</strong>
+                                        </h5> -->
                                         <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                         <p>Lorem ipsum dolor sit amet, consectetur...</p>
                                     </div>
@@ -77,8 +69,8 @@ include "include/variablesusuario.php";
                                         <img class="media-object" src="http://placehold.it/50x50" alt="">
                                     </span>
                                     <div class="media-body">
-                                        <h5 class="media-heading"><strong><?php echo $_SESSION['usuario']; ?></strong>
-                                        </h5>
+                                        <!-- <h5 class="media-heading"><strong>Fre</strong>
+                                        </h5> -->
                                         <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                         <p>Lorem ipsum dolor sit amet, consectetur...</p>
                                     </div>
@@ -92,9 +84,33 @@ include "include/variablesusuario.php";
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu alert-dropdown">
+                        <li>
+                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">View All</a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $_SESSION['nombre']." ".$_SESSION['apellidou']." ".$_SESSION['apellidod']; ?><b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Fredy <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -107,25 +123,21 @@ include "include/variablesusuario.php";
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="#"><i class="fa fa-fw fa-power-off"></i>Salir</a>
                         </li>
                     </ul>
                 </li>
             </ul>
-            <!-- ------------------------MENU--------------------------- -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li class="active">
-                        <a href="inicio.php"><i class="fa fa-fw fa-dashboard"></i>Mis Blogs</a>
-                    </li>
                     <li>
-                        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
+                        <a href="index.php"><i class="fa fa-fw fa-dashboard"></i>Mis Blogs</a>
+                    </li>
+                    <li class="active">
+                        <a href="formulariologs.html"><i class="fa fa-fw fa-bar-chart-o"></i>Registro Logs</a>
                     </li>
                     <li>
                         <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
-                    </li>
-                    <li>
-                        <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
                     </li>
                     <li>
                         <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
@@ -139,11 +151,54 @@ include "include/variablesusuario.php";
                 </ul>
             </div>
         </nav>
-        <?php include "include/post.php" ?>      
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Registro de Post 
+                        </h1>
+                    </div>
+                    <div class="col-lg-6">
+                        <form role="form" action="include/registropost.php" method="post">
+
+                            <div class="form-group">
+                                Titulo
+                                <input class="form-control" type="text" name="titulo"autofocus required>
+                            </div>
+
+                            <div class="form-group">
+                                SubTitulo
+                                <input class="form-control" type="text" name="subtitulo"required>
+                            </div>
+
+                            <div class="form-group">
+                                Icono
+                                <input class="form-control" type="text" name="icono"required>
+                            </div>
+
+                            <div class="form-group">
+                                Texto
+                                <textarea class="form-control" rows="4" name="texto" maxlength="4000"></textarea><br/>
+                             <input type="submit">
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/plugins/morris/raphael.min.js"></script>
     <script src="js/plugins/morris/morris.min.js"></script>
     <script src="js/plugins/morris/morris-data.js"></script>
+    <script src="js/plugins/flot/jquery.flot.js"></script>
+    <script src="js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="js/plugins/flot/jquery.flot.resize.js"></script>
+    <script src="js/plugins/flot/jquery.flot.pie.js"></script>
+    <script src="js/plugins/flot/flot-data.js"></script>
 </body>
 </html>

@@ -2,16 +2,11 @@
 
 $conexion = mysql_connect("localhost","fredy","fredy");
 mysql_select_db("blogsonline",$conexion);
-// $con = "SELECT * FROM Usuario INNER JOIN Post ON Usuario.IdUsuario=Post.IdPost=Usuario='".$_SESSION['usuariotemporal']."';";
-$con = mysql_query("SELECT * FROM `post`, usuario WHERE post.Usuario = 'fredy' AND post.Usuario = usuario.Usuario");
-// $consulta = mysql_query($con);
 
-// var_dump($con);
+$resul = mysql_query("SELECT * FROM usuario WHERE usuario='".$_SESSION['usuariotemporal']."';");
 
-//select * from post where usuario='fredy'
-while ($fila =mysql_fetch_array($con)) {
-	
-	echo "<div id='page-wrapper'>
+while ($fila = mysql_fetch_array($resul)) {
+    echo "<div id='page-wrapper'>
 
             <div class='container-fluid'>
                 <div class='row'>
@@ -102,33 +97,11 @@ while ($fila =mysql_fetch_array($con)) {
                         </div>
                     </div>
                     <!-- //////////////////////////////////////FIN PARTE EMAIL/////////////////////////7 -->
-
-                    <div class='col-lg-3 col-md-6'>
-                        <div class='panel panel-red'>
-                            <div class='panel-heading'>
-                                <div class='row'>
-                                    <div class='col-xs-9 text-right'>
-                                        <div class='huge'>Fecha</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href='#'>
-                                <div class='panel-footer'>
-                                    <span class='pull-left'>".$fila['Anio']."-".$fila['Mes']."-".$fila['Dia']."</span>
-                                    <div class='clearfix'></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-
                 </div>
             </div>
         </div>
     </div>";
+
 }
-?>  
-
-
-
-  
+mysql_close($conexion);
+?>

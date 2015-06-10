@@ -26,21 +26,12 @@ while ($fila = mysql_fetch_array($resultado)) {
 		echo "
 			<html>
 			<head>
-			<meta http-equiv='refresh' content='0; url=inicio.php'/>
+			<meta http-equiv='refresh' content='0; url=../index.php'/>
 			</head>
 			</html>
 		";
 	}else{
-		// echo "no encontrado en la base de datos";
-
-		// echo "
-		// 	<html>
-		// 	<head>
-		// 	<meta http-equiv='refresh' content='0; url=index.html'/>
-		// 	</head>
-		// 	</html>
-		// ";
-
+		echo "no encontrado en la base de datos";
 	}
 }
 ?>
