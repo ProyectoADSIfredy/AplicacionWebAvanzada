@@ -4,6 +4,13 @@ session_start();
 
 include "include/variablesusuario.php";
 
+if (isset($_GET['editando'])) {
+    $editando = $_GET['editando'];
+}else{
+    $editando = "no";
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,7 +62,7 @@ include "include/variablesusuario.php";
                             <a href="#">
                                 <div class="media">
                                     <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                        u<img class="media-object" src="http://placehold.it/50x50" alt="">
                                     </span>
                                     <div class="media-body">
                                         <h5 class="media-heading"><strong>Fredy Ramirez</strong>
@@ -115,7 +122,7 @@ include "include/variablesusuario.php";
                         <a href="index.php"><i class="fa fa-fw fa-dashboard"></i>Mis Blogs</a>
                     </li>
                     <li>
-                        <a href="formulariologs.html"><i class="fa fa-fw fa-bar-chart-o"></i>Registro Logs</a>
+                        <a href="formulariologs.php"><i class="fa fa-fw fa-bar-chart-o"></i>Registro Logs</a>
                     </li>
                     <li>
                         <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
@@ -141,27 +148,9 @@ include "include/variablesusuario.php";
                              <!-- <small>".$_SESSION['nombre']." ".$_SESSION['apellidou']." ".$_SESSION['apellidod']."</small> -->
                              <small><?php echo $_SESSION['nombre']." ".$_SESSION['apellidou']." ".$_SESSION['apellidod']; ?></small>
                         </h1>
-                        <div class="col-lg-12">
-                        <div class="alert alert-info alert-dismissable">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <i class="fa fa-info-circle"></i>  <strong>Like SB Admin?</strong> Try out <a href="http://startbootstrap.com/template-overviews/sb-admin-2" class="alert-link">SB Admin 2</a> for additional features!
-                        </div>
-                    </div>
-                        <div class='mifoto'><img src='images/".$_SESSION['foto'].".jpeg' height='150px' width='150px'></div>
+                        <div class='mifoto'><img src='archivos/<?php echo $_SESSION['foto']; ?>' height='150px' width='150px'></div>
                          <br/>
                         </div>
-<!-- ////////////////////////////encabezado azul////////////////////////////////////////7 -->
-                        <div class="row">
-                    <div class="col-lg-12">
-                        <div class="alert alert-info alert-dismissable">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <i class="fa fa-info-circle"></i>  <strong>Like SB Admin?</strong> Try out <a href="http://startbootstrap.com/template-overviews/sb-admin-2" class="alert-link">SB Admin 2</a> for additional features!
-                        </div>
-                    </div>
-                </div>
-                <!-- ////////////////////////////encabezado azul////////////////////////////////////////7 -->
-
-
                 <div class='row'>
                     <!-- /////////////////////////////////INICIO TITULO///////////////////////////////////////////////////// -->
                     <div class='col-lg-3 col-md-6'>
@@ -243,7 +232,9 @@ include "include/variablesusuario.php";
             </div>
         </div>
     </div>";
-        <?php include "include/post.php" ?>      
+        <?php if ($editando == "no") { include "include/post.php"; }else{}?>
+
+        <?php if ($editando == "yes") { include "include/formularioActualizar.php"; }else{}?>        
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/plugins/morris/raphael.min.js"></script>

@@ -1,7 +1,5 @@
 <?php 
-
 session_start();
-
 include "include/variablesusuario.php";
 ?>
 <!DOCTYPE html>
@@ -110,7 +108,7 @@ include "include/variablesusuario.php";
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Fredy <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i><?php echo $_SESSION['nombre']." ".$_SESSION['apellidou']."".$_SESSION['apellidod']; ?> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
