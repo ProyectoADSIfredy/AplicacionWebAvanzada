@@ -10,6 +10,12 @@ if (isset($_GET['editando'])) {
     $editando = "no";
 }
 
+if (isset($_SESSION['login'])) {
+    
+}else{
+    $_SESSION['login'] = "no";
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -65,7 +71,7 @@ if (isset($_GET['editando'])) {
                                         u<img class="media-object" src="http://placehold.it/50x50" alt="">
                                     </span>
                                     <div class="media-body">
-                                        <h5 class="media-heading"><strong>Fredy Ramirez</strong>
+                                        <h5 class="media-heading"><strong><?php echo $_SESSION['nombre']." ".$_SESSION['apellidou'] ?></strong>
                                         </h5>
                                         <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                         <p>Lorem ipsum dolor sit amet, consectetur...</p>
@@ -97,7 +103,7 @@ if (isset($_GET['editando'])) {
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $_SESSION['nombre']." ".$_SESSION['apellidou']." ".$_SESSION['apellidod']; ?><b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src='archivos/<?php echo $_SESSION['foto']; ?>' height='30px' width='30px'> <?php echo $_SESSION['nombre']." ".$_SESSION['apellidou']." ".$_SESSION['apellidod']; ?><b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -110,7 +116,7 @@ if (isset($_GET['editando'])) {
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="include/unlog.php"><i class="fa fa-fw fa-power-off"></i>Cerrar Sesíon</a>
                         </li>
                     </ul>
                 </li>
@@ -123,18 +129,6 @@ if (isset($_GET['editando'])) {
                     </li>
                     <li>
                         <a href="formulariologs.php"><i class="fa fa-fw fa-bar-chart-o"></i>Registro Logs</a>
-                    </li>
-                    <li>
-                        <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
-                    </li>
-                    <li>
-                        <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
-                    </li>
-                    <li>
-                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
-                    </li>
-                    <li>
-                        <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
                     </li>
                 </ul>
             </div>
@@ -232,7 +226,10 @@ if (isset($_GET['editando'])) {
             </div>
         </div>
     </div>";
-        <?php if ($editando == "no") { include "include/post.php"; }else{}?>
+
+        <?php if ($_SESSION['login'] == "yes" ){} 
+        if ($editando == "no") { include "include/post.php"; }else{}?>
+
 
         <?php if ($editando == "yes") { include "include/formularioActualizar.php"; }else{}?>        
     <script src="js/jquery.js"></script>

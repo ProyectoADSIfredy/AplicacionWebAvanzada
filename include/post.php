@@ -3,7 +3,8 @@
 $conexion = mysql_connect("localhost","fredy","fredy");
 mysql_select_db("blogsonline",$conexion);
 
-$resul = mysql_query("SELECT * FROM post WHERE usuario='".$_SESSION['usuariotemporal']."' LIMIT 5;");
+// $resul = mysql_query("SELECT * FROM post WHERE usuario='".$_SESSION['usuariotemporal']."' LIMIT 5;");
+$resul = mysql_query("SELECT * FROM post WHERE usuario='".$_SESSION['usuario']."' LIMIT 5;");
 
 while ($fila = mysql_fetch_array($resul)) {
 
@@ -22,9 +23,15 @@ while ($fila = mysql_fetch_array($resul)) {
                             </div>
                             <a href='#'>
                                 <div class='panel-footer'>
-                                    <span class='pull-left'>Fecha:".$fila['Anio']."-".$fila['Mes']."-".$fila['Dia']."<br/> Hora:".$fila['Hora']."-".$fila['Minuto']."-".$fila['Segundo']."<br/><a href='include/eliminarpost.php?Utc=".$fila['Utc']."'><br/><br/>Eliminar Post</a><br/><a href='formularioActualizar.php?titulo=".$fila['Titulo']."&subtitulo=".$fila['Subtitulado']."&texto=".$fila['Texto']."&editando=yes&&utc=".$fila['Utc']."'>Actualizar Post</a></span>
-
-                                    <div class='clearfix'></div>
+                                    <span class='pull-left'>Fecha:".$fila['Anio']."-".$fila['Mes']."-".$fila['Dia']."<br/> Hora:".$fila['Hora']."-".$fila['Minuto']."-".$fila['Segundo']."<br/><a href='#'>";
+                                    
+                                    if ($_SESSION['login'] == "yes" ){ 
+                                    echo "<a href='include/eliminarpost.php?Utc=".$fila['Utc']."'><br/><br/>Eliminar Post</a>";echo "<br/>";}else{}
+                                    
+                                    if ($_SESSION['login'] == "yes" ){ 
+                                    echo "<a href='formularioActualizar.php?titulo=".$fila['Titulo']."&subtitulo=".$fila['Subtitulado']."&texto=".$fila['Texto']."&editando=yes&&utc=".$fila['Utc']."'>Actualizar Post</a>";}else{}
+                                    echo "</span>";
+                                    echo "<div class='clearfix'></div>
                                 </div>
                             </a>
                         </div>

@@ -108,7 +108,7 @@ include "include/variablesusuario.php";
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i><?php echo $_SESSION['nombre']." ".$_SESSION['apellidou']."".$_SESSION['apellidod']; ?> <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src='archivos/<?php echo $_SESSION['foto']; ?>' height='30px' width='30px'><?php echo $_SESSION['nombre']." ".$_SESSION['apellidou']."".$_SESSION['apellidod']; ?> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -121,7 +121,7 @@ include "include/variablesusuario.php";
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i>Salir</a>
+                            <a href="include/unlog.php"><i class="fa fa-fw fa-power-off"></i>Cerrar Sesíon</a>
                         </li>
                     </ul>
                 </li>
@@ -133,18 +133,6 @@ include "include/variablesusuario.php";
                     </li>
                     <li class="active">
                         <a href="formulariologs.html"><i class="fa fa-fw fa-bar-chart-o"></i>Registro Logs</a>
-                    </li>
-                    <li>
-                        <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
-                    </li>
-                    <li>
-                        <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
-                    </li>
-                    <li>
-                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
-                    </li>
-                    <li>
-                        <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
                     </li>
                 </ul>
             </div>

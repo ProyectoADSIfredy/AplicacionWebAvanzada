@@ -1,6 +1,5 @@
 <?php
 
-//obtener variables 
 session_start();
 
 $usuario = $_POST['usuario'];
@@ -11,17 +10,14 @@ $conexion = mysql_connect("localhost","fredy","fredy");
 mysql_select_db("blogsonline",$conexion);
 
 //consulta
-$resultado = mysql_query("SELECT * FROM usuario;");
+$resultado = mysql_query("SELECT * FROM usuario WHERE Usuario='".$usuario."';");
 
-while ($fila = mysql_fetch_array($resultado)) {
-	$usuariobasedatos = $fila['Usuario'];
-	$contrasenabasedatos = $fila['Contrasena'];	
-	$permisosenbase = $fila['Permiso'];	
 
-	if ($usuario == $usuariobasedatos & $contrasena == $contrasenabasedatos) {
+	while ($fila = mysql_fetch_array($resultado)) {
+	
+	if (($usuario = $fila['Usuario']) & ($contrasena=$fila['Contrasena'])) {
 		$_SESSION['usuario'] = $usuario;
-		$_SESSION['contrasena'] = $contrasena ;
-		$_SESSION['Permisos'] = $permisosenbase;
+		$_SESSION['login'] = "yes";
 
 		echo "
 			<html>
@@ -30,8 +26,20 @@ while ($fila = mysql_fetch_array($resultado)) {
 			</head>
 			</html>
 		";
+
 	}else{
-		echo "no encontrado en la base de datos";
+		
+		$_SESSION['login'] = "no";
+		
+		echo "
+			<html>
+			<head>
+			<meta http-equiv='refresh' content='0; url=../index.php'/>
+			</head>
+			</html>
+		";
 	}
 }
+
+
 ?>

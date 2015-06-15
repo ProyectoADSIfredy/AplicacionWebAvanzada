@@ -1,12 +1,14 @@
 <?php 
 
-$_SESSION['usuariotemporal'] = $_SESSION['usuario'];
+$_SESSION['usuario'] = $_SESSION['usuario'];
+
 
 $conexion = mysql_connect("localhost","fredy","fredy");
 mysql_select_db("blogsonline",$conexion);
 
-// mysql_query("SELECT * FROM usuario WHERE usuario='".$_SESSION['usuariotemporal']."';")";
-$resul = mysql_query("SELECT * FROM usuario WHERE usuario='".$_SESSION['usuariotemporal']."';");
+$resul = mysql_query("SELECT * FROM usuario WHERE usuario='".$_SESSION['usuario']."';");
+// $resul="SELECT * FROM usuario WHERE usuario='".$_SESSION['usuario']."'";
+
 
 while ($fila = mysql_fetch_array($resul)) {
 	$_SESSION['usuario'] = $fila['Usuario'];
