@@ -124,11 +124,14 @@ if (isset($_SESSION['login'])) {
             <!-- ------------------------MENU--------------------------- -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
+                 <li class="active">
+                        <a href="viewInstall.php"><i class="fa fa-list-alt"></i>Instalacion BD</a>
+                    </li>
                     <li class="active">
-                        <a href="index.php"><i class="fa fa-fw fa-dashboard"></i>Mis Blogs</a>
+                        <a href="index.php"><i class="fa fa-list-alt"></i>Mis Blogs</a>
                     </li>
                     <li>
-                        <a href="formulariologs.php"><i class="fa fa-fw fa-bar-chart-o"></i>Registro Logs</a>
+                        <a href="formulariologs.php"><i class="fa fa-outdent"></i>Registro Logs</a>
                     </li>
                 </ul>
             </div>

@@ -15,6 +15,16 @@ $webpersonal = $_POST['webpersonal'];
 $email = $_POST['email'];
 $permiso =3;
 
+// $usuario = $_GET['usuario'];
+// $contrasena = $_GET['contrasena'];
+// $nombre = $_GET['nombre'];
+// $apellidou = $_GET['apellidou'];
+// $apellidod = $_GET['apellidod'];
+// $titulo = $_GET['titulo'];
+// $descripcion = $_GET['descripcion'];
+// $webpersonal = $_GET['webpersonal'];
+// $email = $_GET['email'];
+// $permiso =3;
 
 //codigo subir archivvo
 	include('class.upload.php');
@@ -65,16 +75,17 @@ mysql_select_db("blogsonline",$conexion);
 // 4. usuario invitado
 
 mysql_query("INSERT INTO usuario (Usuario, Contrasena, Nombre, ApellidoU, ApellidoD, Titulo, Descripcion, Foto, WebPersonal, Email, Permiso) VALUES ('".$usuario."','".$contrasena."','".$nombre."','".$apellidou."','".$apellidod."','".$titulo."','".$descripcion."','".$foto."','".$webpersonal."','".$email."','".$permiso."');");
-
+// $que="INSERT INTO usuario (Usuario, Contrasena, Nombre, ApellidoU, ApellidoD, Titulo, Descripcion, Foto, WebPersonal, Email, Permiso) VALUES ('".$usuario."','".$contrasena."','".$nombre."','".$apellidou."','".$apellidod."','".$titulo."','".$descripcion."','".$foto."','".$webpersonal."','".$email."','".$permiso."')";
+// var_dump($que);
 mysql_close($conexion);
 
-echo "
-<html>
-<head>
-<meta http-equiv='refresh' content='0; url=formulariologin.html'/>
-</head>
-</html>
-";
+// echo "
+// <html>
+// <head>
+// <meta http-equiv='refresh' content='0; url=formulariologin.html'/>
+// </head>
+// </html>
+// ";
 }else{
 	echo "El nombre de usuario ya existe";
 }
