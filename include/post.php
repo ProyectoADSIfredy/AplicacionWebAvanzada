@@ -1,10 +1,10 @@
 <?php 
 
 $conexion = mysql_connect("localhost","fredy","fredy");
-mysql_select_db("blogsonline",$conexion);
+mysql_select_db("bdpost",$conexion);
 
 // $resul = mysql_query("SELECT * FROM post WHERE usuario='".$_SESSION['usuariotemporal']."' LIMIT 5;");
-$resul = mysql_query("SELECT * FROM post WHERE usuario='".$_SESSION['usuario']."' LIMIT 5;");
+$resul = mysql_query("SELECT * FROM post WHERE Usuario='".$_SESSION['usuario']."' LIMIT 5;");
 
 while ($fila = mysql_fetch_array($resul)) {
 

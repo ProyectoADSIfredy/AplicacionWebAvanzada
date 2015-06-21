@@ -5,7 +5,7 @@ $codigoutc = $_GET['Utc'];
 
 
 $conexion = mysql_connect("localhost","fredy","fredy");
-mysql_select_db("blogsonline",$conexion);
+mysql_select_db("bdpost",$conexion);
 
 $consul = mysql_query("DELETE FROM post WHERE Utc='".$codigoutc."'");
 

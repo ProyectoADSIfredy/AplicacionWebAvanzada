@@ -1,7 +1,8 @@
+<?php require_once "queryUsuario.php"; ?>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Ribbon Login Form Flat Responsive widget Design :: w3layouts</title>
+<title>Login</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -16,7 +17,7 @@
 		<input type="text" class="text" name="usuario" placeholder="Usuario" required autofocus />
 		<input type="password" class="text" name="contrasena" placeholder="Contraseña" required>
 		<div class="remember">
-			<h4><a href="formularioRegistro.html">Click para registrarse</a></h4>
+			<h4><a href="formularioRegistro.php">Click para registrarse</a></h4>
 		</div>
 		<div class="clear"> </div>
 		<div class="btn">

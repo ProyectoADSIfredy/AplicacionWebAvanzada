@@ -6,7 +6,7 @@ session_destroy();
 echo "
 			<html>
 			<head>
-			<meta http-equiv='refresh' content='0; url=../formulariologin.html'/>
+			<meta http-equiv='refresh' content='0; url=../formulariologin.php'/>
 			</head>
 			</html>
 		";

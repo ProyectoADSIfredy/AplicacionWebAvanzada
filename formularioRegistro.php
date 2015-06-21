@@ -1,3 +1,4 @@
+<?php require_once "queryUsuario.php";  ?>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -30,7 +31,8 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <!-- <form role="form" action="crearusuario.php" method="post"> -->
-                        <form role="form" name="formSimple" id="formSimple" enctype="multipart/form-data" method="post" action="crearusuario.php" />
+                        <!-- <form role="form" name="formSimple" id="formSimple" enctype="multipart/form-data" method="post" action="crearusuario.php" /> -->
+                        <form role="form" name="formSimple" id="formSimple" enctype="multipart/form-data" method="post" action="queryUsuario.php?action=crear"/>
 
                             <div class="form-group">
                                 Usuario

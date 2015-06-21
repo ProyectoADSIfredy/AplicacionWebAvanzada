@@ -4,7 +4,7 @@ $_SESSION['usuario'] = $_SESSION['usuario'];
 
 
 $conexion = mysql_connect("localhost","fredy","fredy");
-mysql_select_db("blogsonline",$conexion);
+mysql_select_db("bdpost",$conexion);
 
 $resul = mysql_query("SELECT * FROM usuario WHERE usuario='".$_SESSION['usuario']."';");
 // $resul="SELECT * FROM usuario WHERE usuario='".$_SESSION['usuario']."'";
@@ -20,7 +20,6 @@ while ($fila = mysql_fetch_array($resul)) {
 	$_SESSION['foto'] = $fila['Foto'];
 	$_SESSION['webpersonal'] = $fila['WebPersonal'];
 	$_SESSION['email'] = $fila['Email'];
-	$_SESSION['permiso'] = $fila['Permiso'];
 }
 mysql_close($conexion);
 ?>

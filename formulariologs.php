@@ -1,5 +1,6 @@
 <?php 
 session_start();
+require_once "queryPost.php";  
 include "include/variablesusuario.php";
 ?>
 <!DOCTYPE html>
@@ -135,7 +136,7 @@ include "include/variablesusuario.php";
                         <a href="index.php"><i class="fa fa-list-alt"></i>Mis Blogs</a>
                     </li>
                     <li class="active">
-                        <a href="formulariologs.html"><i class="fa fa-outdent"></i>Registro Logs</a>
+                        <a href="formulariologs.php"><i class="fa fa-outdent"></i>Registro Logs</a>
                     </li>
                 </ul>
             </div>
@@ -149,7 +150,10 @@ include "include/variablesusuario.php";
                         </h1>
                     </div>
                     <div class="col-lg-6">
-                        <form role="form" action="include/registropost.php" method="post">
+                        <!-- <form role="form" name="formSimple" id="formSimple" 
+                        enctype="multipart/form-data" method="post" action="queryUsuario.php?action=crear"/> -->
+                        <!-- <form role="form" action="include/registropost.php" method="post"> -->
+                        <form role="form" action="queryPost.php?action=crear" method="post">
 
                             <div class="form-group">
                                 Titulo

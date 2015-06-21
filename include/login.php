@@ -7,7 +7,7 @@ $contrasena = $_POST['contrasena'];
 
 //crearemos conexion 
 $conexion = mysql_connect("localhost","fredy","fredy");
-mysql_select_db("blogsonline",$conexion);
+mysql_select_db("bdpost",$conexion);
 
 //consulta
 $resultado = mysql_query("SELECT * FROM usuario WHERE Usuario='".$usuario."';");

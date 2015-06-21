@@ -1,13 +1,12 @@
 <?php
-	function CreateBD($name = "bdpost"){
 
+	function CreateBD($name = "bdpost"){
+		$usuario="fredy";
+		$contrasena="fredy";
 		try {
-			//definicion de las variables usuario y contraseña de la base de datos
-			$usuario="root";
-			$contrasena="";
 			//creacion de la base de datos y seleccion de la base de datos
 			$db = new PDO("mysql:host=localhost;dbname=".$name,$usuario,$contrasena);
-			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			//$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); visualiza errores en la base de datos
 			
 			echo "<i class='fa fa-check-square-o'></i> Se ha creado/seleccionado la base de datos correctamente."."<br/>";
 
@@ -60,16 +59,18 @@
 
 	}
 
-	function execQuey($name="BDpost", $query, $params=NULL){
-
+	function execQuey($name="bdpost", $query, $params=NULL){
+		$usuario="fredy";
+		$contrasena="fredy";
 		try {
 			//seleccion de la base de datos 
-			$db = new PDO("mysql:host=localhost;dbname='".$name."','".$usuario."','".$contrasena."'");
+			$db = new PDO("mysql:host=localhost;dbname=".$name."",$usuario,$contrasena);
+			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			if ($params===NULL) {
 				$resul=$db->exec($query);
 			}else{
-				$cmd = $db->$prepare($query);
-				$resul = $cmd->exec($params);
+				$cmd = $db->prepare($query);
+				$resul = $cmd->execute($params);
 			}
 			$db=NULL;
 			return ($resul);
@@ -81,10 +82,11 @@
 	}
 
 	function newQuery($name = "BDpost", $query){
-
+		$usuario="fredy";
+		$contrasena="fredy";
 		try {
-
-			$db = new PDO("mysql:host=localhost;dbname='".$name."','".$usuario."','".$contrasena."'");
+			$db = new PDO("mysql:host=localhost;dbname=".$name,$usuario,$contrasena);
+			// $db = new PDO("mysql:host=localhost;dbname='".$name."','".$usuario."','".$contrasena."'");
 			$resul=$db->query($query);
 
 			$db=NULL;
@@ -94,6 +96,25 @@
 
 			echo $e->getMessage();
 			
+		}
+	}
+
+	function subirImagen ($namFile){
+		include('class.upload.php');
+		$archivos = new Upload($namFile);
+		if ($archivos->uploaded){
+			$foto=$archivos->file_new_name_body = $archivos->file_src_name_body;
+			$foto=$foto.".".$archivos->file_src_name_ext;
+			$archivos->Process('archivos');
+			if($archivos->processed){
+				echo "Archivo Subido";
+				$archivos->Clean();
+				return $foto;
+			}
+		}else{
+			echo "Error al subir el archivo...".$archivos->error;
+			$archivos->Clean();
+			return NULL;
 		}
 	}
 ?>

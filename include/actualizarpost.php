@@ -6,7 +6,7 @@ $subtitulo = $_POST['subtitulo'];
 $texto = $_POST['texto'];
 
 $conexion = mysql_connect("localhost","fredy","fredy");
-mysql_select_db("blogsonline",$conexion);
+mysql_select_db("bdpost",$conexion);
 
 mysql_query("UPDATE post SET Titulo='".$titulo."', Subtitulado='".$subtitulo."', Texto='".$texto."' WHERE Utc='".$utc."'");
 

@@ -2,7 +2,10 @@
 
 session_start();
 
-include "include/variablesusuario.php";
+require_once "queryUsuario.php";
+require_once "queryPost.php";
+
+// include "include/variablesusuario.php";
 
 if (isset($_GET['editando'])) {
     $editando = $_GET['editando'];
@@ -149,96 +152,21 @@ if (isset($_SESSION['login'])) {
                          <br/>
                         </div>
                 <div class='row'>
-                    <!-- /////////////////////////////////INICIO TITULO///////////////////////////////////////////////////// -->
-                    <div class='col-lg-3 col-md-6'>
-                        <div class='panel panel-primary'>
-                            <div class='panel-heading'>
-                                <div class='row'>
-                                    <div class='col-xs-9 text-right'>
-                                        <div class='huge'>Titulo</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href='#'>
-                                <div class='panel-footer'>
-                                    <span class='pull-left'><?php echo $_SESSION['titulo'];?></span>
-                                    <div class='clearfix'></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- ////////////////////////////////FIN PARTE TITULO////////////////////////////////////////////////// -->
-                    <!-- ////////////////////////////////INICIO PARTE DESCRIPCION//////////////////////////////////////////-->
-                    <div class='col-lg-3 col-md-6'>
-                        <div class='panel panel-green'>
-                            <div class='panel-heading'>
-                                <div class='row'>
-                                    <div class='col-xs-9 text-right'>
-                                        <div class='huge'>Descripcion</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href='#'>
-                                <div class='panel-footer'>
-                                    <span class='pull-left'><?php echo $_SESSION['descripcion'];?></span>
-                                    <div class='clearfix'></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- //////////////////////////////////////FIN PARTE DESCRIPCION/////////////////////////7 -->
-                    <!-- //////////////////////////////////////FIN PARTE WEB PERSONAL////////////////////////7 -->
-                    <div class='col-lg-3 col-md-6'>
-                        <div class='panel panel-yellow'>
-                            <div class='panel-heading'>
-                                <div class='row'>
-                                    <div class='col-xs-9 text-right'>
-                                        <div class='huge'>WebPersonal</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href='#'>
-                                <div class='panel-footer'>
-                                    <span class='pull-left'><?php echo $_SESSION['webpersonal'];?></span>
-                                    <div class='clearfix'></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- //////////////////////////////////////FIN PARTE WEB PERSONAL/////////////////////////7 -->
-                    <!-- //////////////////////////////////////INICIO PARTE EMAIL/////////////////////////7 -->
-                    <div class='col-lg-3 col-md-6'>
-                        <div class='panel panel-red'>
-                            <div class='panel-heading'>
-                                <div class='row'>
-                                    <div class='col-xs-9 text-right'>
-                                        <div class='huge'>Email</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href='#'>
-                                <div class='panel-footer'>
-                                    <span class='pull-left'><?php echo $_SESSION['email'];?></span>
-                                    <div class='clearfix'></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- //////////////////////////////////////FIN PARTE EMAIL/////////////////////////7 -->
+                    <?php VerUsuarios() ?>
+                    
                 </div>
             </div>
         </div>
-    </div>";
-
-        <?php if ($_SESSION['login'] == "yes" ){} 
-        if ($editando == "no") { include "include/post.php"; }else{}?>
-
-
-        <?php if ($editando == "yes") { include "include/formularioActualizar.php"; }else{}?>        
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/plugins/morris/raphael.min.js"></script>
-    <script src="js/plugins/morris/morris.min.js"></script>
-    <script src="js/plugins/morris/morris-data.js"></script>
+    </div>
+    <div id='page-wrapper'>
+    <div class='container-fluid'>
+    <div class='container-fluid'>
+    <h1 class='page-header'>
+    <small>Tus blogs</small>
+    </h1>
+    </div>
+        <?php VerPost() ?>      
+    </div>
+    </div>
 </body>
 </html>

@@ -19,7 +19,7 @@ $minuto = date('i');
 $segundo = date('s');
 
 $conexion = mysql_connect("localhost","fredy","fredy");
-mysql_select_db("blogsonline",$conexion);
+mysql_select_db("bdpost",$conexion);
 
 // mysql_query("INSERT INTO post (uSU) VALUES();
 mysql_query("INSERT INTO post (Usuario, Utc, Anio, Mes, Dia, Hora, Minuto, Segundo, Titulo, Subtitulado, Icono, Texto) VALUES ('$usuario','$utc','$anio','$mes','$dia','$hora','$minuto','$segundo','$titulo','$subtitulo','$icono','$texto')");
