@@ -1,9 +1,10 @@
 <?php 
+require_once"queryPost.php";
 
 $titulo = $_GET['titulo'];
 $subtitulo = $_GET['subtitulo'];
 $texto = $_GET['texto'];
-$utc = $_GET['utc'];
+// $utc = $_GET['utc'];
 
 
 ?>
@@ -32,11 +33,11 @@ $utc = $_GET['utc'];
                         </h1>
                     </div>
                     <div class="col-lg-6">
-                        <form role="form" action="include/actualizarpost.php" method="post">
-
+                        <form role="form" action="queryPost.php?action=update" method="post">
+                            <!-- //queryUsuario.php?action=crear"/> -->
                             <div class="form-group">
                                 Titulo
-                                <input class="form-control" type="text" name="titulo" value="<?php echo $titulo ?>" autofocus>
+                                <input class="form-control" type="text" name="titulo" value="<?php echo $titulo; ?>" autofocus>
                             </div>
 
                             <div class="form-group">

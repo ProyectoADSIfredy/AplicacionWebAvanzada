@@ -1,11 +1,11 @@
-<?php 
+ <?php 
 
 session_start();
 
 require_once "queryUsuario.php";
 require_once "queryPost.php";
 
-// include "include/variablesusuario.php";
+include "include/variablesusuario.php";
 
 if (isset($_GET['editando'])) {
     $editando = $_GET['editando'];

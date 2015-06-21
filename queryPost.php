@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+
 require_once ("instalacion.php");
 
 	if (!empty($_REQUEST['action'])) {
@@ -58,13 +59,13 @@ require_once ("instalacion.php");
 				<div class='panel-heading'>
 				<div class='row'>
 				<div class='col-xs-9 text-right'>
-				<div class='huge'>Titulo</div>
+				<div class='huge'>Informacion</div>
 				</div>
 				</div>
 				</div>
 				<a href='#'>
 				<div class='panel-footer'>
-				<span class='pull-left'>".$value['Titulo']."</span>
+				<span class='pull-left'><a href='formularioActualizar.php?titulo=".$value['Titulo']."&subtitulo=".$value['Subtitulado']."&texto=".$value['Texto']."'><i class='fa fa-pencil fa-fw'></i></a>&nbsp;<a href='queryPost.php?id=".$value['IdPost']."'><i class='fa fa-times'></i></a><br/>Fecha"." ".$value['Anio']."/".$value['Mes']."/".$value['Dia']."<br/>Hora"." ".$value['Hora'].":".$value['Dia']."</span>
 				<div class='clearfix'></div>
 				</div>
 				</a>
@@ -76,13 +77,13 @@ require_once ("instalacion.php");
 				<div class='panel-heading'>
 				<div class='row'>
 				<div class='col-xs-9 text-right'>
-				<div class='huge'>Subtitulado</div>
+				<div class='huge'>Post</div>
 				</div>
 				</div>
 				</div>
 				<a href='#'>
 				<div class='panel-footer'>
-				<span class='pull-left'>".$value['Subtitulado']."</span>
+				<span class='pull-left'>Titulo Post:"." ".$value['Titulo']."<br/>Subtitulo Post"." ".$value['Subtitulado']."</span>
 				<div class='clearfix'></div>
 				</div>
 				</a>
@@ -123,38 +124,75 @@ require_once ("instalacion.php");
 				</div>
 				</a>
 				</div>
-				</div>";
-
+				</div>
+				<div class='container-fluid'>
+			    <h1 class='page-header'>
+			    <small></small>
+			    </h1>
+			    </div>";
 			}
 		}else{
 			echo "no se encontraron resultados";
 		}
 	}
-	/*
-	 <div class='col-lg-3 col-md-6'>
-                        <div class='panel panel-red'>
-                            <div class='panel-heading'>
-                                <div class='row'>
-                                    <div class='col-xs-9 text-right'>
-                                        <div class='huge'>Registro</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href='#'>
-                                <div class='panel-footer'>
-                                    <span class='pull-left'>Fecha:".$fila['Anio']."-".$fila['Mes']."-".$fila['Dia']."<br/> Hora:".$fila['Hora']."-".$fila['Minuto']."-".$fila['Segundo']."<br/><a href='#'>";
-                                    
-                                    if ($_SESSION['login'] == "yes" ){ 
-                                    echo "<a href='include/eliminarpost.php?Utc=".$fila['Utc']."'><br/><br/>Eliminar Post</a>";echo "<br/>";}else{}
-                                    
-                                    if ($_SESSION['login'] == "yes" ){ 
-                                    echo "<a href='formularioActualizar.php?titulo=".$fila['Titulo']."&subtitulo=".$fila['Subtitulado']."&texto=".$fila['Texto']."&editando=yes&&utc=".$fila['Utc']."'>Actualizar Post</a>";}else{}
-                                    echo "</span>";
-                                    echo "<div class='clearfix'></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
 
-	*/
+	function UpdatePost(){
+		
+		$params = array(
+			// ':IdPost' => $_SESSION['IdPost'],
+			':usuario' => $_SESSION['usuario'],
+			':utc' => date('U'),
+			':anio' => date('Y'),
+			':mes' => date('m'),
+			':dia' => date('d'),
+			':hora' => date('H'),
+			':minuto' => date('i'),
+			':segundo' => date('s'),
+			':titulo' => $_POST['titulo'],
+			':subtitulo' => $_POST['subtitulo'],
+			':icono' => $_POST['icono'],
+			':texto' => $_POST['texto'],
+			);
+		$query="UPDATE post SET
+		 Usuario=:usuario,
+		 Utc=:utc,
+		 Anio=:anio,
+		 Mes=:mes,
+		 Dia=:dia,
+		 Hora=hora,
+		 Minuto=:minuto,
+		 Segundo=:segundo,
+		 Titulo=:titulo,
+		 Subtitulado=:subtitulo,
+		 Icono=:icono,
+		 Texto=:texto
+		 where Utc=:utc";
+		$resul = execQuey("bdpost",$query,$params);
+		var_dump($query);
+		
+
+		if ($resul > 0) {
+			echo "estoy por aca ";
+			// unset($_SESSION['idpost']);
+			// $_SESSION['idpost'] = NULL;
+			header('Location : index.php');
+			
+		}else{
+			header('Location : formularioActualizar.php');
+		}
+	}
+
+	function DeletePost(){
+
+		$idpost = $_GET['id'];
+
+		$params = array(
+			'idpost' = $_GET['id'];
+			);
+
+		$query="DELETE FROM post WHERE IdPost=:idpost";
+	}
+//AQUI QUEDE 
+
 ?>
+  

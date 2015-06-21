@@ -42,10 +42,7 @@
 			 	Titulo varchar(120), 
 			 	Subtitulado varchar(200), 
 			 	Icono varchar(100), 
-			 	Texto varchar(4000), 
-			 	Imagen varchar(200), 
-			 	Video varchar(200), 
-			 	Sonido varchar(200))";
+			 	Texto varchar(4000)";
 			//condicion para saber si se creo la tabla post
 			$resul = $db->exec($query);
 			echo ($resul === false) ? "<i class='fa fa-times-circle'></i>No se pudo crear la tabla Post."."<br/>" : "<i class='fa fa-check-square-o'></i>Se creo correctamente la tabla Post."."<br/>";
